@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<title>Postcode District to MSOA</title>
+	<link rel="StyleSheet" href="resources/style.css" type="text/css" />
+	<link rel="icon" href="https://open-innovations.org/resources/images/logos/oi-square-14.svg" />
+	<script type="text/javascript" src="resources/app.js"></script>
+</head>
+<body class="b6-bg">
+
+	<header>
+		<div class="b1-bg padded">
+			<div class="holder" style="text-align:center;">
+				<a href="https://open-innovations.org/" aria-label="Open Innovations"><img src="https://open-innovations.org/resources/images/logos/oi-square-14.svg" alt="Open Innovations" width="100px" height="100px" /></a>
+			</div>
+		</div>
+	</header>
+
+	<div id="main">
+
+		<div class="seasonal">
+			<div class="holder padded">
+				<h1>Postcode District to MSOA</h1>
+			</div>
+		</div>
+
+		<div class="holder padded-vertical">
+			<p>Sometimes we only have data by Postcode District and we need values by MSOA. As Postcode Districts and MSOAs don't share borders and aren't heirarchical, there are different ways we could choose to map between them.</p>
+
+			<label for="mode">Method of mapping:</label>
+			<select id="mode">
+				<option value="sum">Sum of all matching postcode district values</option>
+				<option value="proportion">Split by proportion of postcodes in an MSOA</option>
+			</select>
+			<div id="inputs">
+				<div>
+					<h2>Input</h2>
+					<p>Paste two-column CSV/TSV content here:</p>
+					<textarea id="input"></textarea>
+				</div>
+				<div>
+					<h2>Output</h2>
+					<p>The output CSV will appear here:</p>
+					<textarea id="output"></textarea>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<footer class="doublepadded">
+		<div class="holder padded">
+			<h2>Credits</h2>
+			<p>&copy; Open Innovations 2022</p>
+			<p><a href="https://geoportal.statistics.gov.uk/datasets/ons::postcode-to-output-area-to-lower-layer-super-output-area-to-middle-layer-super-output-area-to-local-authority-district-february-2022-lookup-in-the-uk/about">Postcode to Output Area to Lower Layer Super Output Area to Middle Layer Super Output Area to Local Authority District (February 2022) Lookup in the UK</a>: ONS</p>
+		</div>
+	</footer>
+
+</body>
+</html>

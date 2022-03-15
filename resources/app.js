@@ -18,10 +18,19 @@
 			}, {});
 		}
 
-		function Converter(input,output,mode){
+		function Converter(input,output,mode,explain){
 	
 			input.addEventListener('change',function(e){ OI.converter.update(); });
-			mode.addEventListener('change',function(e){ OI.converter.update(); });
+			mode.addEventListener('change',function(e){
+				OI.converter.updateExplanation();
+				OI.converter.update();
+			});
+
+			this.updateExplanation = function(){
+				txt = mode.options[mode.selectedIndex].getAttribute('title');
+				explain.innerHTML = txt;
+				return this;
+			}
 
 			this.setLookup = function(lookup){
 				this.lookup = lookup;
@@ -71,6 +80,8 @@
 				}
 				output.value = csv;
 			}
+			this.updateExplanation();
+
 			return this;
 		}
 		
@@ -84,7 +95,7 @@
 			console.error('There has been a problem with your fetch operation:', error);
 		});
 
-		OI.converter = new Converter(document.getElementById('input'),document.getElementById('output'),document.getElementById('mode'))
+		OI.converter = new Converter(document.getElementById('input'),document.getElementById('output'),document.getElementById('mode'),document.getElementById('explanation'))
 	});
 
 })(window || this);

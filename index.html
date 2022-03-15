@@ -27,13 +27,14 @@
 		</div>
 
 		<div class="holder padded-vertical">
-			<p>Sometimes we only have data by Postcode District and we need values by MSOA. As Postcode Districts and MSOAs don't share borders and aren't heirarchical, there are different ways we could choose to map between them.</p>
+			<p>Sometimes we only have data by Postcode District and we need values by MSOA. Postcode Districts and MSOAs don't share borders and aren't heirarchical so it is not possible to uniquely map from Postcode District to MSOA; a Postcode District may contain parts or all of several MSOAs. We will attempt to produce figures for each MSOA but you should note that the MSOA values should be treated as approximate, not correct. Different methods of mapping will produce different MSOA values.</p>
 
 			<label for="mode">Method of mapping:</label>
 			<select id="mode">
-				<option value="sum">Sum of all matching postcode district values</option>
-				<option value="proportion">Split by proportion of postcodes in an MSOA</option>
+				<option value="sum" title="For every MSOA we sum up all the Postcode District values associated with this MSOA even if only part of the MSOA is in the Postcode District. For instance, the entire value for LS2 is given to E02002384, E02002392, E02002393, E02002400, and E02006875. This method leads to double accounting but that may be OK depending on what you are doing.">Sum of all matching postcode district values</option>
+				<option value="proportion" title="Postcode District values are apportioned into MSOAs by the proportion of postcodes in that MSOA. For example, LS2 has 151 postcodes in E02002384, 104 in E02002392, 19 in E02002393, 82 in E02002400, and 400 in E02006875 so 53% (400/756) of the value for LS2 is given to E02006875. The actual underlying data may not be evenly distributed around a Postcode District so this doesn't necessarily split values correctly.">Split by proportion of postcodes in that MSOA</option>
 			</select>
+			<p id="explanation" class="padded"></p>
 			<div id="inputs">
 				<div>
 					<h2>Input</h2>
